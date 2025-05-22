@@ -22,6 +22,14 @@ const nextConfig = {
         hostname: 'img.clerk.com'
       },
     ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/elevenlabs',
+        destination: 'https://podcastr-sage-three.vercel.app/api/elevenlabs' // or ElevenLabs API endpoint
+      }
+    ]
   }
 };
 
