@@ -51,12 +51,15 @@ const GenerateThumbnail = ({ setImage, setImageStorageId, image, imagePrompt, se
     try {
       setIsImageLoading(true);
     
-      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/huggingface`, { 
+      const response = await fetch('/api/huggingface', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
-            input: imagePrompt,
-        })
-      })
+          input: imagePrompt,
+        }),
+      });
 
       const blob = await response.blob();
       handleImage(blob, `thumbnail-${uuidv4()}`);
@@ -163,6 +166,7 @@ const GenerateThumbnail = ({ setImage, setImageStorageId, image, imagePrompt, se
             src={image}
             width={200}
             height={200}
+            unoptimized
             className="mt-5"
             alt="thumbnail"
           />
