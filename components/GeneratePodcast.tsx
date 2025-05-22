@@ -37,13 +37,16 @@ const useGeneratePodcast = ({
     }
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/elevenlabs`, { 
+      const response = await fetch('/api/elevenlabs', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
-            input: voicePrompt,
-            voice: voiceType
-        })
-      })
+          input: voicePrompt,
+          voice: voiceType,
+        }),
+      });
 
       // const response = await getPodcastAudio({
       //   input: voicePrompt,
