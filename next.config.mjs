@@ -7,7 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'fastidious-elk-268.convex.cloud'
+        hostname: 'fastidious-elk-268.convex.cloud',
       },
       {
         protocol: 'https',
@@ -21,14 +21,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'img.clerk.com'
       },
-    ]
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/api/elevenlabs',
-        destination: 'https://podcastr-sage-three.vercel.app/api/elevenlabs' // or ElevenLabs API endpoint
-      }
     ]
   }
 };
